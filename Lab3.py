@@ -2,8 +2,11 @@ print("Lab 3 - Software Unit Testing with PyTest")
 
 SORT_ASCENDING = 0
 SORT_DESCENDING = 1
-
-
+Req_1 = 1
+Req_2 = 1
+Req_3 = 1
+Req_4 = 1
+Req_5 = 1
 def bubble_sort(arr, sorting_order):
 
     # Copy input list to results list
@@ -12,7 +15,7 @@ def bubble_sort(arr, sorting_order):
     # Get number of elements in the list
     n = len(arr_result)
 
-    if n < 10:
+    if n == 10:
         # Traverse through all array elements
         for i in range(n - 1):
             # range(n) also work but outer loop will
@@ -33,14 +36,22 @@ def bubble_sort(arr, sorting_order):
                 else:
                     # Return an empty array
                     arr_result = []
-    else:
-        arr_result = -1
+    elif n > 10:
+        arr_result = 1
+    elif 0 < n < 10:
+        arr_result = 2
+    elif n == 0:
+        arr_result = 0
+
+    for i in arr:
+        if isinstance(i, int) == False:
+            arr_result = 3
 
     return arr_result
 
 def main():
     # Driver code to test above
-    arr = [64, 34, 25, 12, 22, 11, 90]
+    arr = [64, 34, 25, 12, 22, 11, 90, 4, 2, 3, 1]
 
     # Sort in ascending order
     result = bubble_sort(arr, SORT_ASCENDING)
@@ -48,9 +59,10 @@ def main():
     print(result)
 
     # Sort in descending order
-    print("Sorted array in ascending order: ")
+    print("Sorted array in descending order: ")
     result = bubble_sort(arr, SORT_DESCENDING)
     print(result)
+
 
 if __name__ == "__main__":
     main()
